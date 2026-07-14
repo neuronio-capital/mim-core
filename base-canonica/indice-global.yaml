@@ -1,0 +1,4 @@
+# Índice global de projetos da Base Canônica.
+# Placeholder — populado somente quando existir um segundo projeto (ver ADR-000, mim-core).
+# Nenhuma lógica de indexação é implementada neste milestone (Milestone 01).
+projetos: []

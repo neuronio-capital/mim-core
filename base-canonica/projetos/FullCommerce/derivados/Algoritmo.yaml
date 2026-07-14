@@ -1,0 +1,34 @@
+# Algoritmo do FullCommerce — o fluxo lógico de execução do projeto (não o Ciclo da
+# Inteligência do produto, que é conceito interno já definido em Constituicao.md, Art. 16).
+# Derivado da disciplina de governança observada nos fechamentos de Milestone 01 e 02
+# do repositório de código (ver timeline/) e replicada pelo próprio ADR-000 do mim-core.
+nome: FullCommerce
+fluxo:
+  - etapa: decisao_arquitetural
+    descricao: >
+      Toda decisão estrutural nasce como ADR numerado sequencialmente, citando os
+      artigos da Constituição que a fundamentam.
+  - etapa: aprovacao
+    descricao: >
+      Nenhuma implementação começa sem aprovação explícita do fundador sobre o ADR
+      ou o plano de milestone.
+  - etapa: implementacao
+    descricao: >
+      Código escrito em conformidade com o ADR aprovado; nenhuma implementação
+      contraria a Constituição ou os ADRs vigentes.
+  - etapa: validacao_empirica
+    descricao: >
+      Validação contra ambiente real (não mockado) — bancos, containers, testes de
+      integração — antes de qualquer commit.
+  - etapa: revisao
+    descricao: >
+      Revisão do diff, dos artefatos gerados e dos critérios de aceite antes da
+      publicação.
+  - etapa: commit_e_push
+    descricao: >
+      Commit com mensagem registrando a validação empírica realizada; push para o
+      branch principal.
+  - etapa: fechamento_documentado
+    descricao: >
+      Documento de fechamento do milestone registra o que foi feito, validado,
+      pendências e riscos remanescentes.

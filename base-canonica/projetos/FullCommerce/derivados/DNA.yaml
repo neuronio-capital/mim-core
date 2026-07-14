@@ -1,0 +1,24 @@
+# DNA do FullCommerce — derivado de fontes/Constituicao.md (Art. 1-15, 42) e fontes/ADRs/.
+# Recalculável a partir das fontes; não editado manualmente a partir do Milestone 06
+# (Sistema Circulatório). Nesta fase (Milestone 01), esta primeira versão é um
+# bootstrap manual — ver Algoritmo.yaml e a nota em EstadoAtual.yaml.
+nome: FullCommerce
+objetivo: >
+  Sistema Operacional Empresarial orientado por decisões que impulsionam o crescimento
+  sustentável da empresa, reduzindo continuamente a distância entre dados, contexto,
+  inteligência, priorização, decisão, ação e aprendizado (Constituição, Art. 1-2).
+restricoes:
+  - "Não é ERP, painel de métricas ou ferramenta neutra (Art. 3)"
+  - "Autoridade final é sempre humana — a IA nunca aprova decisão estratégica ou irreversível sozinha (Núcleo Imutável, Art. 14)"
+  - "Números sempre calculados deterministicamente; a IA nunca inventa um número (Art. 18)"
+  - "Multi-tenant desde a origem — um cliente jamais vê o dado de outro (Art. 15, 42)"
+  - "Monólito modular na origem — microsserviços só por necessidade real comprovada (ADR-000/D1)"
+  - "Sem vendor lock-in — portabilidade e não-aprisionamento do dono (Art. 42)"
+principios:
+  - "Fluxo Vital / Ciclo da Inteligência"
+  - "Soberania do Dono"
+  - "Honestidade dos Dados"
+  - "Autonomia Graduada"
+  - "Criação de Valor acima de métrica isolada"
+  - "Explicabilidade"
+  - "Colaborador Estratégico (não ferramenta)"

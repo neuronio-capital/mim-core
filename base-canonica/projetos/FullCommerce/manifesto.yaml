@@ -1,0 +1,17 @@
+# Porta de entrada do projeto FullCommerce dentro da Base Canônica (ver ADR-000, mim-core).
+nome: FullCommerce
+versao: v1.0 RC1               # versão vigente da Constituição (fontes/Constituicao.md)
+status: em-desenvolvimento     # Milestone 02 concluído em 2026-07-10 — ver derivados/EstadoAtual.yaml
+responsavel: Neurônio Capital
+repositorio_codigo: https://github.com/neuronio-capital/fullcommerce
+# O código-fonte do FullCommerce NÃO vive aqui. Esta pasta contém apenas a memória
+# canônica e a governança documental (Constituição, ADRs, DNA, Algoritmo, Estado Atual,
+# Linha do Tempo), copiada do repositório acima para validar a Base Canônica.
+arquivos_chave:
+  constituicao: fontes/Constituicao.md
+  adrs: fontes/ADRs/
+  documentos_canonicos: fontes/DocumentosCanonicos/
+  dna: derivados/DNA.yaml
+  algoritmo: derivados/Algoritmo.yaml
+  estado_atual: derivados/EstadoAtual.yaml
+  timeline: timeline/
