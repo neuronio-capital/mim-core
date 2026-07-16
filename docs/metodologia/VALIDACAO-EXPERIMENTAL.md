@@ -2,11 +2,11 @@
 
 ## Estado
 
-**Experimental.**
+**Validado.**
 
 **Classificação (provisória):** Metodologia experimental de validação.
 
-Esta classificação é provisória enquanto o documento permanece em estado Experimental. A eventual promoção destas observações a conhecimento epistemológico do Sistema MIM — isto é, a princípio permanente sobre como o próprio método MIM avalia evidência, confiança e risco, e não apenas sobre como uma auditoria pontual deve ser conduzida — depende exclusivamente das validações futuras descritas na seção "Critério de Graduação" abaixo. Até lá, nenhuma afirmação deste documento deve ser tratada como regra definitiva do Sistema MIM.
+Esta classificação é provisória enquanto o documento permanece em estado Validado. A eventual promoção destas observações a conhecimento epistemológico do Sistema MIM — isto é, a princípio permanente sobre como o próprio método MIM avalia evidência, confiança e risco, e não apenas sobre como uma auditoria pontual deve ser conduzida — depende exclusivamente da revisão do fundador descrita na seção "Critério de Graduação" abaixo, que decide entre Incorporação, Permanência em Validado ou Reabertura. Até lá, nenhuma afirmação deste documento deve ser tratada como regra definitiva do Sistema MIM.
 
 ## Origem
 
@@ -40,11 +40,11 @@ Os itens abaixo permanecem em validação e não fazem parte destas observaçõe
 
 A graduação não é uma transição única — este documento percorre três estados:
 
-### 1. Experimental (estado atual)
+### 1. Experimental
 
 Estado de origem. As observações existem, mas ainda não foram testadas fora do caso que as originou.
 
-### 2. Validado
+### 2. Validado (estado atual)
 
 Atingido **automaticamente**, sem intervenção humana adicional, assim que os critérios técnicos objetivos abaixo forem cumpridos:
 
@@ -75,16 +75,31 @@ Nome dado ao exercício de auditoria que originou estas observações: uma avali
 - **Status:** Aplicado.
 - **Data:** 2026-07-15.
 - **Contexto:** Auditoria arquitetural conduzida durante a implementação de Primitives + primeiro Pattern do FullCommerce, usando o Stress Test Pluricelular.
-- **Resultado:** originou as observações 1–4 registradas acima. Ajustes: nenhum ainda classificado (caso de origem).
+- **Resultado:** originou as observações 1–4 registradas acima. Ajustes: nenhum ajuste foi necessário; não há ajuste a classificar por ser o caso de origem das observações.
 
 ### Caso 2 — Smoke test de integração do NUX Engine em `apps/web`
 
-- **Status:** Planejado / pendente.
-- **Contexto:** `apps/storefront` ainda não existe; sua criação está fora do escopo do Milestone 03 por restrição explícita do ADR-004 (FullCommerce). O smoke test usa `apps/web` como local temporário e não cria nenhuma aplicação nova.
-- **Resultado:** a registrar após execução.
+- **Status:** Aplicado.
+- **Data:** 2026-07-15.
+- **Contexto:** `apps/storefront` ainda não existe; sua criação está fora do escopo do Milestone 03 por restrição explícita do ADR-004 (FullCommerce). O smoke test usou `apps/web` como local temporário e não criou nenhuma aplicação nova.
+- **Resultado:**
+  - build do monorepo passou (Turborepo resolveu `packages/ui` antes de `apps/web`);
+  - guard de produção confirmado via HTML gerado com `NODE_ENV=production`;
+  - CSS Modules resolvidos corretamente através do workspace (classes hasheadas + regra `.Hero_highlight__Q27hq { color: var(--color-brand-accent); }` no CSS de produção);
+  - Theme Engine aplicado de fato (CSS custom properties resolvidas inline a partir do `neutralTokens`);
+  - verificação visual via Playwright sem overlay de erro.
+- **Ajustes:** nenhuma das quatro observações metodológicas precisou de ajuste — nem refinamento de redação, nem mudança de substância.
 
 ---
 
+## Verificação do Critério de Graduação (após reformulação do Caso 1)
+
+- **Dois casos reais independentes aplicados:** satisfeito. Evidência: Caso 1 (auditoria arquitetural, Milestone 03 do FullCommerce, 2026-07-15) e Caso 2 (smoke test de integração do NUX Engine em `apps/web`, 2026-07-15) são casos de natureza distinta (auditoria arquitetural vs. smoke test de integração), ambos registrados com **Status: Aplicado**.
+- **Registro dos resultados de ambos:** satisfeito. Evidência: o Caso 1 registra que a aplicação originou as observações 1–4; o Caso 2 registra os cinco resultados verificados do smoke test (build do monorepo, guard de produção, resolução de CSS Modules, aplicação do Theme Engine, verificação visual via Playwright).
+- **Registro explícito de classificação de ajustes para ambos os casos:** satisfeito. Evidência: o Caso 1 agora declara, sem ambiguidade, "nenhum ajuste foi necessário; não há ajuste a classificar por ser o caso de origem das observações". O Caso 2 declara, também sem ambiguidade, que nenhuma das quatro observações metodológicas precisou de ajuste — nem refinamento de redação, nem mudança de substância. Nenhum dos dois registros deixa margem para interpretação dupla.
+
+Os três critérios objetivos definidos na seção "Critério de Graduação" estão agora integralmente satisfeitos para os dois casos. Conforme a regra vigente, a transição de Experimental para Validado é **automática** e não depende de decisão do fundador — por isso ela é aplicada diretamente neste documento, e **o Estado passa a: Validado**.
+
 ## Próximo passo
 
-Aplicar as observações 1–4 ao Caso 2 (smoke test do NUX Engine em `apps/web`) e registrar o resultado nesta mesma seção. Com os dois casos registrados e os ajustes classificados, o documento passa automaticamente a Validado. A partir daí, cabe ao fundador revisar e decidir entre incorporação (documento canônico novo, ou conteúdo de um ADR não-congelado do mim-core), permanência em Validado, ou reabertura.
+O documento está em estado Validado: as observações demonstraram repetibilidade em dois casos independentes, mas ainda não foram formalmente incorporadas ao Sistema MIM. O próximo passo é exclusivamente do fundador — revisar o conteúdo Validado e decidir entre Incorporação (documento canônico novo, ou conteúdo de um ADR não-congelado do mim-core), Permanência em Validado (revisão adiada), ou Reabertura (se algum problema for identificado).
