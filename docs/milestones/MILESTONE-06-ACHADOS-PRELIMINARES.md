@@ -37,6 +37,8 @@ Este documento **não inicia** o Milestone 06. É um registro de evidências dat
 
 Em resumo: o conteúdo é **factualmente correto**, mas **procedimentalmente não conforme** ao DEC-1/DEC-3 até que `fontes/` seja atualizado com um artefato real do repositório do FullCommerce documentando o Milestone 03. Popular `fontes/` está fora do escopo deste achado — é trabalho novo, não parte deste diagnóstico.
 
+**Causa raiz:** `VALIDACAO-EXPERIMENTAL.md` foi usado como substituto de fonte primária precisamente porque é a única evidência escrita disponível sobre o Milestone 03 do FullCommerce no ecossistema `mim-core` — mas ele próprio não tem rastreabilidade verificável ao repositório do FullCommerce: nenhum commit hash, PR ou branch é citado nos Casos 1 e 2, ao contrário do padrão que o próprio `EstadoAtual.yaml` usava antes da correção (ex.: `"commit af6dc46"` para o Milestone 02).
+
 **Por que isso importa para o Milestone 06:** reforça o padrão do Achado 1 por um ângulo diferente — sem sincronização automática, mesmo uma correção feita com cuidado e transparência (fonte e data declaradas, DEC-4 cumprido) ainda pode pular a cadeia de autoridade que o próprio ADR-001 formaliza, porque não há nada que force a atualização a passar por `fontes/` antes de chegar a `derivados/`. Esse é exatamente o tipo de verificação que um Sistema Circulatório automatizado tornaria estrutural em vez de dependente de uma auditoria manual.
 
 ## Status
