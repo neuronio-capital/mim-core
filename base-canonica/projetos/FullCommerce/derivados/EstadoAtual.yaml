@@ -1,15 +1,22 @@
-# Estado atual do FullCommerce — derivado de docs/milestones/MILESTONE-02-FECHAMENTO.md
-# e do cabeçalho de status de fontes/ADRs/ADR-001-*.md, no repositório de código
-# (https://github.com/neuronio-capital/fullcommerce), em 2026-07-14.
+# Estado atual do FullCommerce — campos milestone_atual, proximo_milestone e
+# objetivo_ativo atualizados manualmente em 2026-07-18, com base em
+# docs/metodologia/VALIDACAO-EXPERIMENTAL.md (Casos 1-2, mim-core) e confirmação
+# direta do fundador nesta sessão. Sincronização anterior (2026-07-14) partiu de
+# docs/milestones/MILESTONE-02-FECHAMENTO.md e do cabeçalho de status de
+# fontes/ADRs/ADR-001-*.md, no repositório de código
+# (https://github.com/neuronio-capital/fullcommerce).
 projeto: FullCommerce
-milestone_atual: "Milestone 02 — concluído e publicado em 2026-07-10 (commit af6dc46)"
+milestone_atual: "Milestone 03 — em execução (Primitives completos; Patterns Hero e ProductCard implementados e commitados)."
 proximo_milestone: >
-  Não definido nos documentos-fonte disponíveis nesta cópia — nenhum Milestone 03
-  encontrado em docs/ do repositório de código no momento desta migração (2026-07-14).
+  Não definido nos documentos-fonte disponíveis nesta cópia — nenhum Milestone 04
+  encontrado até o momento desta atualização (2026-07-18).
 objetivo_ativo: >
-  Núcleo mínimo (Evento Canônico + isolamento multi-tenant via Row-Level Security)
-  validado empiricamente contra Postgres real. Nenhuma regra de negócio de Food
-  implementada ainda; núcleo permanece agnóstico de vertical (D1/D2 do ADR-000).
+  Milestone 03 em execução: construção do Design System do FullCommerce
+  (Primitives + Patterns) — Primitives completos, Patterns Hero e ProductCard
+  implementados e commitados. O objetivo do Milestone 02 (Núcleo mínimo — Evento
+  Canônico + isolamento multi-tenant via Row-Level Security, validado contra
+  Postgres real) permanece concluído; nenhuma regra de negócio de Food
+  implementada ainda.
 bloqueios_conhecidos:
   - "CI não executa a suíte de testes de integração (test:integration) — validado apenas manualmente até o Milestone 02."
   - "Nenhum endpoint HTTP real nem autenticação implementados."
@@ -17,4 +24,4 @@ bloqueios_conhecidos:
   - "Senha do papel de banco fullcommerce_app hardcoded na migration de desenvolvimento — estratégia de segredos para staging/produção ainda não decidida."
   - "PrismaService cai silenciosamente para o papel owner se APP_DATABASE_URL não estiver definida, sem erro nem aviso."
   - "ADR-001 permanece com status \"Proposto\" (aguardando aprovação formal do fundador), embora o ADR-002 já opere sobre suas decisões (DEC-3) como se aceitas."
-data_ultima_sincronizacao: "2026-07-14"
+data_ultima_sincronizacao: "2026-07-18"
