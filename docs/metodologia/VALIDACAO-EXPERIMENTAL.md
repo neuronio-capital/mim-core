@@ -100,6 +100,12 @@ Nome dado ao exercício de auditoria que originou estas observações: uma avali
 
 Os três critérios objetivos definidos na seção "Critério de Graduação" estão agora integralmente satisfeitos para os dois casos. Conforme a regra vigente, a transição de Experimental para Validado é **automática** e não depende de decisão do fundador — por isso ela é aplicada diretamente neste documento, e **o Estado passa a: Validado**.
 
+## Revisão do Fundador (2026-07-18)
+
+- **Decisão:** Permanência em Validado.
+- **Justificativa:** o documento atingiu o critério objetivo de graduação com dois casos independentes, mas esse é o volume mínimo exigido pela regra, não um histórico extenso de uso real. Elevar a Canônico agora seria generalizar sem evidência acumulada suficiente, o que contraria a própria Observação 1 do documento (Evidência ≠ Hipótese). A metodologia permanece válida e vinculante em estado Validado.
+- **Próxima revisão:** será revisitada quando houver mais casos aplicados em outros contextos do projeto (ex.: próximos milestones do FullCommerce ou validações no NEF).
+
 ## Próximo passo
 
-O documento está em estado Validado: as observações demonstraram repetibilidade em dois casos independentes, mas ainda não foram formalmente incorporadas ao Sistema MIM. O próximo passo é exclusivamente do fundador — revisar o conteúdo Validado e decidir entre Incorporação (documento canônico novo, ou conteúdo de um ADR não-congelado do mim-core), Permanência em Validado (revisão adiada), ou Reabertura (se algum problema for identificado).
+Acumular mais casos aplicados em outros contextos do projeto (ex.: próximos milestones do FullCommerce ou validações no NEF), conforme indicado na Revisão do Fundador acima, para subsidiar uma futura revisão de Incorporação a Canônico. Até lá, o documento permanece em estado Validado — válido e vinculante.
