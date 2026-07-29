@@ -51,6 +51,15 @@ Termos com definição já consistente entre documentos. Aqui apenas referenciad
 | Sistema Circulatório | Sincronizador que roda após aprovação de um Documento Canônico e recalcula os derivados | Manter `derivados/` sincronizado com `fontes/` automaticamente | mim-core | ADR-000 |
 | Lateralidade | Pipeline de validação antes da aprovação de um Documento Canônico | Validar um documento por múltiplos validadores antes da aprovação | mim-core | ADR-000 |
 | Validador de Paradoxos | Avaliador de tensões arquiteturais antes da aprovação final | Identificar conflitos e severidade entre pares de princípios opostos | mim-core | ADR-000 |
+| DNA | Estrutura de metadados versionada (YAML) — nome, objetivo, restrições e princípios do projeto | Registrar, de forma recalculável, a identidade estrutural do projeto a partir de `fontes/` | mim-core | ADR-000 |
+| Algoritmo | Descreve o fluxo lógico esperado do projeto (planejamento -> execução -> validação -> entrega) | Registrar, de forma recalculável, a sequência de execução esperada do projeto | mim-core | ADR-000 |
+| Documentos Canônicos | Especificações versionadas no formato ADR/RFC (DC-014: Título, Status, Autor, Resumo, Motivação, Decisão, Impactos, Referências) | Ser a principal fonte de verdade do projeto | mim-core | ADR-000 |
+| Profundidade 3.0 | Pipeline de extração e normalização de conhecimento — entrada: um documento; saída: escopo, DNA, padrões, algoritmo, checklist, metadados estruturados e relacionamentos | Extrair metadados estruturados a partir de um documento novo | mim-core | ADR-000 (Milestone 04, ainda não implementado) |
+| Engenharia Reversa em Camadas | Pipeline de decomposição de um objetivo em módulos, dependências, riscos e Checklist-Mãe | Decompor um objetivo em etapas automatizáveis | mim-core | ADR-000 |
+| `manifesto.yaml` | Porta de entrada do projeto (nome, versão, status, responsável, referências aos arquivos-chave) | Ser o primeiro documento consultado sobre um projeto na Base Canônica | mim-core | ADR-000 |
+| `EstadoAtual.yaml` | Artefato em `derivados/` que registra milestone atual, objetivo ativo e bloqueios conhecidos de um projeto | Refletir o estado corrente do projeto, sujeito às mesmas regras de autoridade de `derivados/` (ADR-001, DEC-3) | mim-core | ADR-000; ver também Achados 1 e 2 em `MILESTONE-06-ACHADOS-PRELIMINARES.md` |
+| `indice-global.yaml` | Índice de topo da Base Canônica, listando os projetos existentes; placeholder até existir um segundo projeto — distinto de `indices/` (por projeto) | Registrar quais projetos existem na Base Canônica | mim-core | ADR-000 |
+| Ecossistema | Neste Vocabulário e em `ARQUITETURA-ECOSSISTEMA-MIM-CORE.md`, refere-se ao escopo governado pelo mim-core (decisão de Opção B) — distinto do campo "Ecossistema: Neurônio Capital" do cabeçalho do ADR-000, que se refere à Neurônio Capital como um todo | Delimitar o alcance de documentos que usam o termo | — (transversal) | ADR-000; `ARQUITETURA-ECOSSISTEMA-MIM-CORE.md` (decisão de Opção B) |
 
 ## 2. Ambiguidades identificadas
 
@@ -89,7 +98,8 @@ Dentro do próprio `ARQUITETURA-ECOSSISTEMA-MIM-CORE.md`: as seções 3.3 e 6 us
 | Governança Estrutural | ADR-000 (diagrama) | Nomeada, nunca detalhada em seção própria |
 | Independência (de casos) | `VALIDACAO-EXPERIMENTAL.md`, Proposta 3 | Usado sem definição explícita do que torna dois casos "independentes"; já registrado como questão em aberto na Proposta 3 |
 | Índice de Saúde | Proposta 3 | Citado como conceito futuro, não especificado |
-| Matriz de Proveniência | Proposta 3 | Citado como conceito futuro, não especificado |
+| Matriz de Proveniência | Proposta 3 | Citado como conceito futuro, não especificado; ver precedente de uso do conceito-raiz "proveniência" em DEC-4 do ADR-001 do FullCommerce ("todo evento carrega proveniência e confiança") |
+| Base Filosófica | `PROPOSTAS-EM-OBSERVACAO.md`, Proposta 1 | Nome reservado para uso futuro (evita colisão com "Base Canônica"); documento ainda não escrito, não implementado |
 
 ## 5. Achado colateral: nomes de projetos consumidores futuros
 
