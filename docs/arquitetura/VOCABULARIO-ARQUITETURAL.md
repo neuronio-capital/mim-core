@@ -14,6 +14,20 @@ Este documento **não é fonte normativa**. Funciona como índice e consolidaç�
 
 Este princípio segue o mesmo padrão já estabelecido pelo ADR-001 (DEC-2) para `fontes/` na Base Canônica: uma representação governada pode ficar desatualizada em relação à sua origem sem nunca ganhar autoridade sobre ela.
 
+### Convenção editorial — maturidade mista
+
+> Quando o mesmo termo possuir sentidos ou definições provenientes de fontes com maturidades diferentes, esses sentidos devem ser apresentados separadamente, com referência cruzada, identificação da fonte e maturidade explícita.
+
+Esta convenção é editorial e arquitetural, restrita a este Vocabulário. Ela:
+- não cria nem redefine conceitos;
+- não altera documentos de origem;
+- não promove estados de maturidade;
+- não declara equivalência entre fontes;
+- não permite fundir sentidos incompatíveis;
+- preserva o princípio de que a fonte original sempre prevalece.
+
+Aplicada em: `Achado` (entradas separadas em §1 e §4), `Evidências Preventivas` (§4, referenciando "Evidência ≠ Hipótese" em §1 sem alterá-la) e o terceiro sentido de "Canônico" (§2). `Checklist-Mãe` e `Cadeia de autoridade` têm fonte única cada um — não exigiram separação por sentido, apenas declaração explícita de maturidade.
+
 ## Escopo e não-escopo
 
 **Este documento faz:**
@@ -60,6 +74,8 @@ Termos com definição já consistente entre documentos. Aqui apenas referenciad
 | `EstadoAtual.yaml` | Artefato em `derivados/` que registra milestone atual, objetivo ativo e bloqueios conhecidos de um projeto | Refletir o estado corrente do projeto, sujeito às mesmas regras de autoridade de `derivados/` (ADR-001, DEC-3) | mim-core | ADR-000; ver também Achados 1 e 2 em `MILESTONE-06-ACHADOS-PRELIMINARES.md` |
 | `indice-global.yaml` | Índice de topo da Base Canônica, listando os projetos existentes; placeholder até existir um segundo projeto — distinto de `indices/` (por projeto) | Registrar quais projetos existem na Base Canônica | mim-core | ADR-000 |
 | Ecossistema | Neste Vocabulário e em `ARQUITETURA-ECOSSISTEMA-MIM-CORE.md`, refere-se ao escopo governado pelo mim-core (decisão de Opção B) — distinto do campo "Ecossistema: Neurônio Capital" do cabeçalho do ADR-000, que se refere à Neurônio Capital como um todo | Delimitar o alcance de documentos que usam o termo | — (transversal) | ADR-000; `ARQUITETURA-ECOSSISTEMA-MIM-CORE.md` (decisão de Opção B) |
+| Checklist-Mãe | Estrutura de metadados versionada, citada como componente do mim-core e como saída de Profundidade 3.0 e de Engenharia Reversa em Camadas | Registrar, de forma estruturada, o checklist de um objetivo ou projeto | mim-core | ADR-000. Maturidade: fonte Aceita/Congelada; conceito nomeado três vezes no documento, porém sem instância real (`.yaml` ou equivalente) observada no repositório até o momento |
+| Achado (formato de registro) | Registro estruturado de um problema real do próprio mim-core (Linha do tempo; O que está/não está conforme; Causa raiz), com 2 instâncias reais registradas | Documentar problemas reais para acumular evidência antes da priorização de um Milestone | mim-core | `MILESTONE-06-ACHADOS-PRELIMINARES.md`. Maturidade: prática observada em 2 casos reais; o documento de origem não declara Estado formal (Experimental/Validado/Canônico). Ver também "Achado — ciclo de vida (proposto)" em §4 |
 
 ## 2. Ambiguidades identificadas
 
@@ -74,10 +90,11 @@ Usado em pelo menos três sentidos distintos, sem qualificação de camada:
 
 ### "Canônico"
 
-- **Documento Canônico** — artefato específico (formato DC-XXX, pipeline de Lateralidade, aprovação humana), definido no ADR-000;
-- **estado: Canônico** — grau de graduação metodológica de qualquer documento, definido em `VALIDACAO-EXPERIMENTAL.md`.
+- **Documento Canônico** — artefato específico (formato DC-XXX, pipeline de Lateralidade, aprovação humana), definido no ADR-000. Maturidade da fonte: ADR-000 tem status Aceito/Congelado.
+- **estado: Canônico** — grau de graduação metodológica de qualquer documento, definido em `VALIDACAO-EXPERIMENTAL.md`. Maturidade da fonte: documento em estado Validado.
+- **Evento Canônico / Modelo Canônico de Evento** — conceito de modelagem de dados do FullCommerce (Produto Consumidor, externo ao mim-core), definido no ADR-001 do FullCommerce (`base-canonica/projetos/FullCommerce/fontes/ADRs/ADR-001-modelo-canonico-de-evento-e-identidade-unificada.md`). **Maturidade da fonte: aquele ADR declara no próprio cabeçalho "Status: Proposto (aguardando aprovação do fundador)" — não Aceito**; `derivados/EstadoAtual.yaml` do FullCommerce confirma isso como bloqueio conhecido ("ADR-001 permanece com status 'Proposto' [...] embora o ADR-002 já opere sobre suas decisões como se aceitas"). Este registro apenas reconhece um uso real já existente do termo — não valida, aprova ou promove o ADR-001 do FullCommerce, e não transfere autoridade do FullCommerce para o mim-core.
 
-Não há definição de se um documento em estado Canônico (por graduação) se torna automaticamente um Documento Canônico (no sentido do ADR-000).
+Não há definição de se um documento em estado Canônico (por graduação) se torna automaticamente um Documento Canônico (no sentido do ADR-000). Os três sentidos acima têm três níveis de maturidade formal distintos (Aceito/Congelado; Validado; Proposto) e não devem ser tratados como equivalentes.
 
 ### "Padrão"
 
@@ -100,6 +117,9 @@ Dentro do próprio `ARQUITETURA-ECOSSISTEMA-MIM-CORE.md`: as seções 3.3 e 6 us
 | Índice de Saúde | Proposta 3 | Citado como conceito futuro, não especificado |
 | Matriz de Proveniência | Proposta 3 | Citado como conceito futuro, não especificado; ver precedente de uso do conceito-raiz "proveniência" em DEC-4 do ADR-001 do FullCommerce ("todo evento carrega proveniência e confiança") |
 | Base Filosófica | `PROPOSTAS-EM-OBSERVACAO.md`, Proposta 1 | Nome reservado para uso futuro (evita colisão com "Base Canônica"); documento ainda não escrito, não implementado |
+| Achado — ciclo de vida (proposto) | `PROPOSTAS-EM-OBSERVACAO.md`, Proposta 3 | Experimental — propõe 6 etapas (Aberto → Investigação → Correção → Verificação → Resultado → Encerrado); a própria fonte declara que não substitui, altera nem antecipa o formato empírico já usado em `MILESTONE-06-ACHADOS-PRELIMINARES.md` (ver "Achado (formato de registro)" em §1). Nenhum dos 2 Achados reais foi rotulado com estas etapas até o momento |
+| Cadeia de autoridade | `MILESTONE-06-ACHADOS-PRELIMINARES.md` (Achado 2, título e corpo) | Não é termo de primeira classe — é uma síntese descritiva do fluxo repositório de código → `fontes/` → `derivados/`, formalizado por DEC-1/DEC-2/DEC-3 do ADR-001 (mim-core), mas sem esse nome literal naquele ADR. Uso registrado numa única ocorrência, num único documento — não atinge o critério de "dois casos independentes" já usado em `VALIDACAO-EXPERIMENTAL.md`. Promoção a termo próprio condicionada a uma segunda ocorrência independente ou definição formal futura |
+| Evidências Preventivas (Observada/Confirmada) | `PROPOSTAS-EM-OBSERVACAO.md`, Proposta 3 | Experimental — subclassificação proposta de "Evidência" (ver linha "Evidência ≠ Hipótese" em §1, fonte `VALIDACAO-EXPERIMENTAL.md`, Validado); a própria Proposta 3 declara que não altera a Observação 4 daquele documento. Nenhum caso real aplicado até o momento |
 
 ## 5. Achado colateral: nomes de projetos consumidores futuros
 
