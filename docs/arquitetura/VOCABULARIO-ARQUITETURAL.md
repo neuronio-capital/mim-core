@@ -76,6 +76,8 @@ Termos com definição já consistente entre documentos. Aqui apenas referenciad
 | Ecossistema | Neste Vocabulário e em `ARQUITETURA-ECOSSISTEMA-MIM-CORE.md`, refere-se ao escopo governado pelo mim-core (decisão de Opção B) — distinto do campo "Ecossistema: Neurônio Capital" do cabeçalho do ADR-000, que se refere à Neurônio Capital como um todo | Delimitar o alcance de documentos que usam o termo | — (transversal) | ADR-000; `ARQUITETURA-ECOSSISTEMA-MIM-CORE.md` (decisão de Opção B) |
 | Checklist-Mãe | Estrutura de metadados versionada, citada como componente do mim-core e como saída de Profundidade 3.0 e de Engenharia Reversa em Camadas | Registrar, de forma estruturada, o checklist de um objetivo ou projeto | mim-core | ADR-000. Maturidade: fonte Aceita/Congelada; conceito nomeado três vezes no documento, porém sem instância real (`.yaml` ou equivalente) observada no repositório até o momento |
 | Achado (formato de registro) | Registro estruturado de um problema real do próprio mim-core (Linha do tempo; O que está/não está conforme; Causa raiz), com 2 instâncias reais registradas | Documentar problemas reais para acumular evidência antes da priorização de um Milestone | mim-core | `MILESTONE-06-ACHADOS-PRELIMINARES.md`. Maturidade: prática observada em 2 casos reais; o documento de origem não declara Estado formal (Experimental/Validado/Canônico). Ver também "Achado — ciclo de vida (proposto)" em §4 |
+| `DEC-N` | Convenção de rotulagem interna usada em ADRs do `mim-core` para identificar decisões individuais dentro de um mesmo documento (ex.: DEC-1, DEC-2, DEC-3, DEC-4) | Nomear e referenciar uma decisão específica dentro de um ADR do `mim-core` | mim-core | ADR-001 (`docs/adr/ADR-001-autoridade-das-fontes-na-base-canonica.md`, Status: Aceito). Convenção restrita ao uso em ADRs do `mim-core` |
+| Caso | Unidade de registro do formato "Registro de Casos": aplicação real e verificável de uma observação ou conceito, documentada com campos fixos — Status, Data, Contexto, Resultado, Ajustes | Fornecer evidência reprodutível para o critério de "casos reais independentes" já usado pelo mecanismo de graduação (ver §7, sem duplicar seu conteúdo) | — (metodológico, transversal) | `VALIDACAO-EXPERIMENTAL.md` (Estado: Validado), seção "Registro de Casos" (Caso 1, Caso 2) |
 
 ## 2. Ambiguidades identificadas
 
@@ -100,6 +102,15 @@ Não há definição de se um documento em estado Canônico (por graduação) se
 
 Usado em `ARQUITETURA-ECOSSISTEMA-MIM-CORE.md` (o que o NEF materializa), possivelmente relacionado a "Engineering Patterns" (Proposta 2, `PROPOSTAS-EM-OBSERVACAO.md`) e a "Pattern" como componente de UI (`VALIDACAO-EXPERIMENTAL.md`, Caso 1). Nenhuma relação formal foi declarada entre os três usos.
 
+### "Camada"
+
+Usado em pelo menos três sentidos distintos, sem relação formal declarada entre eles:
+- **eixo classificatório informal de §1** — coluna "Camada" da tabela de §1 deste próprio Vocabulário (valores: mim-core / NEF / Produto Consumidor), usada para localizar cada termo; não é definida como conceito próprio em nenhum documento de origem, apenas empregada como rótulo de coluna;
+- **modelo de "três camadas" do ecossistema** — `ARQUITETURA-ECOSSISTEMA-MIM-CORE.md`, seção 3 ("As três camadas": mim-core, NEF, projetos consumidores) e seção 6 (tabela de responsabilidades por camada). **Maturidade da fonte: Proposta / Experimental** — o próprio documento declara não ter autoridade canônica (seção "Estado") e lista o modelo de camadas entre as candidatas à validação (seção 8), ainda sem casos aplicados;
+- **camadas internas da Constituição do FullCommerce** (Produto Consumidor, externo ao mim-core) — usado em ao menos três sentidos distintos entre si dentro da própria fonte: Art. 25 ("As Camadas e os Domínios da Memória" — Operacional, Longo Prazo, Decisória, Institucional, do Cliente), Art. 33 ("Camada Anticorrupção" — tradução de dado externo ao Modelo Canônico) e Art. 49 ("As Três Camadas da Evolução"). Fonte: `base-canonica/projetos/FullCommerce/fontes/Constituicao.md`.
+
+Este registro apenas nomeia a colisão de sentidos; não escolhe um significado único, não resolve a ambiguidade e não reestrutura o eixo classificatório já usado em §1.
+
 ## 3. Sinônimos não declarados (drift já detectado)
 
 ### "Projeto consumidor" vs. "Produto consumidor"
@@ -120,6 +131,7 @@ Dentro do próprio `ARQUITETURA-ECOSSISTEMA-MIM-CORE.md`: as seções 3.3 e 6 us
 | Achado — ciclo de vida (proposto) | `PROPOSTAS-EM-OBSERVACAO.md`, Proposta 3 | Experimental — propõe 6 etapas (Aberto → Investigação → Correção → Verificação → Resultado → Encerrado); a própria fonte declara que não substitui, altera nem antecipa o formato empírico já usado em `MILESTONE-06-ACHADOS-PRELIMINARES.md` (ver "Achado (formato de registro)" em §1). Nenhum dos 2 Achados reais foi rotulado com estas etapas até o momento |
 | Cadeia de autoridade | `MILESTONE-06-ACHADOS-PRELIMINARES.md` (Achado 2, título e corpo) | Não é termo de primeira classe — é uma síntese descritiva do fluxo repositório de código → `fontes/` → `derivados/`, formalizado por DEC-1/DEC-2/DEC-3 do ADR-001 (mim-core), mas sem esse nome literal naquele ADR. Uso registrado numa única ocorrência, num único documento — não atinge o critério de "dois casos independentes" já usado em `VALIDACAO-EXPERIMENTAL.md`. Promoção a termo próprio condicionada a uma segunda ocorrência independente ou definição formal futura |
 | Evidências Preventivas (Observada/Confirmada) | `PROPOSTAS-EM-OBSERVACAO.md`, Proposta 3 | Experimental — subclassificação proposta de "Evidência" (ver linha "Evidência ≠ Hipótese" em §1, fonte `VALIDACAO-EXPERIMENTAL.md`, Validado); a própria Proposta 3 declara que não altera a Observação 4 daquele documento. Nenhum caso real aplicado até o momento |
+| Workflow como fonte primária | `PROPOSTAS-EM-OBSERVACAO.md`, seção "Workflow como fonte primária" | Experimental, registrado por analogia a DEC-1/DEC-3 do ADR-001 (`mim-core`), sem alterar aquele ADR nem propor sua revisão; sem validação; zero casos aplicados até o momento. Critério de promoção citado na própria fonte: casos reais em pelo menos um projeto além do FullCommerce em que tratar uma matriz/índice/dashboard como derivado (e não como fonte) tenha sido decisivo |
 
 ## 5. Achado colateral: nomes de projetos consumidores futuros
 
