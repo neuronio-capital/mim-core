@@ -114,13 +114,13 @@ Seguir a mesma disciplina já usada no Milestone 01: decisão → aprovação �
 
 Determinação formal de objetivo/estado/próximo passo (M03); extração de metadados de documento novo (M04); validação/aprovação de Documentos Canônicos (M05); sincronização automática (M06); qualquer banco vetorial, embeddings, Kubernetes, Redis, filas, microsserviços, arquitetura de agentes ou memória persistente; definição de schema técnico final do bloco de contexto além do conceitualmente exigido; geração de texto ou raciocínio por M02.
 
-## Plano solicitado antes de implementar
+## Decisões técnicas de implementação (Q1–Q5)
 
-1. Formato técnico exato do bloco de contexto (estrutura de arquivo/objeto, serialização).
-2. Formato técnico exato da entrada (projeto/pergunta/objetivo).
-3. Mecanismo concreto de busca dentro de `fontes/`/`derivados/`/`timeline/` (grep simples, leitura sequencial ou outro), respeitando a restrição de MVP (Git/Markdown/SQLite ou apenas arquivos; script simples).
-4. Como representar tecnicamente proveniência, maturidade, conflito, ausência de evidência e estado não determinado dentro do bloco (campo de metadados, comentário, seção separada).
-5. Linguagem/runtime do script (Node ou Python, já genericamente autorizado pelo ADR-000).
+1. **Formato técnico do bloco de contexto:** YAML estruturado. Preserva integralmente os cinco campos e as propriedades conceituais já definidos na seção "Contrato conceitual de saída" — a serialização não altera o contrato conceitual.
+2. **Formato técnico da entrada:** duas camadas. Contrato interno = objeto estruturado (projeto, pergunta, objetivo obrigatórios; estado opcional). Mecanismo de invocação humana V1 = CLI fina que recebe o path de um arquivo YAML, lê esse arquivo e constrói o objeto interno antes de delegar ao Context Builder. O contrato interno não se confunde com a CLI.
+3. **Mecanismo concreto de busca:** leitura sequencial completa do universo de descoberta atual (`fontes/`, `derivados/`, `timeline/`), seguida de seleção simples e determinística contra pergunta/objetivo. A correspondência textual não decide se um arquivo é aberto — decide apenas o que é incluído no bloco final, após a leitura. Sem busca vetorial, embeddings, ranking, score ou heurística sofisticada.
+4. **Representação técnica de proveniência, maturidade, conflito, ausência de evidência e estado não determinado:** lista plana de evidências, com granularidade por evidência. Cada evidência carrega, conforme aplicável, fonte/path, natureza, autoridade, maturidade, conteúdo e proveniência. Conflitos, ausência de evidência e estado não determinado permanecem estruturas tecnicamente distintas entre si — nenhuma reutiliza um `null` genérico com múltiplos significados, e conflito não possui campo de resolução automática (M02 expõe divergência; não a resolve).
+5. **Linguagem/runtime do script:** Node. Fundamento estreito: para o contrato de M02 isoladamente, Node e Python são tecnicamente equivalentes; a escolha reflete redução de fricção de integração com o único consumidor real e nomeado hoje (FullCommerce, stack Node/TypeScript, que já decidiu por ADR próprio contra poliglotismo prematuro), não superioridade técnica intrínseca de Node, nem obrigação de uso para consumidores futuros do mim-core ou para M03–M06.
 
 Todas as cinco são decisões de implementação reversíveis — nenhuma reabre a fronteira M02×M03, o ADR-000 ou qualquer decisão já tomada.
 
