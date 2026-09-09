@@ -124,6 +124,114 @@ O objetivo desta entrada é registrar fielmente o estado atual da compreensão a
 
 ---
 
+## Proposta 4 (Hipótese em observação) — Engenharia Reversa ↔ Proteção Anti-Reconstrução
+
+- **Estado:** adiada — hipótese em observação, não formalizada. O símbolo "↔" no título indica apenas que esta proposta trata as duas matérias em conjunto; **não** afirma uma relação formal, simétrica ou estabelecida entre elas.
+- **Natureza do registro:** entrada de três camadas epistêmicas distintas, que não devem ser fundidas — (A) uma **memória humana não corroborada**; (B) **uma observação empírica recente** (um caso); (C) **uma hipótese nova em observação**. Nenhuma das três é decisão, princípio, componente, milestone ou par de paradoxo do Sistema MIM. Duas auditorias read-only desta conversa (não formalizadas como documento) precederam este registro; suas conclusões estão resumidas na Camada A.
+- **Motivo do adiamento:** a matéria tem motivação real, mas repousa hoje sobre **um único caso empírico** (ver "Critério de evidência"), abaixo do critério objetivo de **dois casos independentes** já usado em `docs/metodologia/VALIDACAO-EXPERIMENTAL.md` e invocado pela Proposta 2 acima. Adicionalmente, a formulação histórica que a inspira **não foi recuperada documentalmente** (ver Camada A).
+
+### Camada A — Memória humana (não corroborada)
+
+O fundador recorda que, durante a idealização histórica do Sistema MIM, foi concebida uma formulação semelhante, descrita **na memória** como *"lateralidade paradoxal"* entre Engenharia Reversa e Criptografia / Proteção Defensiva. Este parágrafo registra o **vocabulário da memória humana**, não o do corpus.
+
+Auditoria read-only estabeleceu:
+- busca no corpus governado atual, em todo o histórico Git (todos os branches, objetos alcançáveis, renames, deletes, stash, reflog) e no escopo local autorizado **não encontrou** essa formulação;
+- os documentos `sistema-mim-historico-v1.md` e `sistema-mim-historico-v2.md`, referenciados apenas em prosa pelo cabeçalho do ADR-000 (campo *Histórico:*, sem path, hash ou genealogia), **não foram recuperados** — não estão no repositório, nunca estiveram no Git, e não foram localizados no escopo autorizado;
+- as sete proposições reconstruídas da memória (dualidade explícita; evolução em camadas; contraponto que também evolui; evolução paralela; separação das laterais; um lado observa os resultados do outro; um lado não recebe o escopo/técnicas completos do outro) permanecem todas **não encontradas** — nem provadas, nem inferíveis, nem contraditas pelas fontes disponíveis;
+- a memória **não foi refutada**; permanece **não corroborada pelo corpus disponível**.
+
+Consequência para esta proposta: a memória humana **não é usada como evidência** e **não conta como caso**. Serve apenas para registrar que a hipótese da Camada C tem uma intenção humana anterior, ainda que sem fonte recuperada.
+
+Os termos **"Lateralidade"** e **"Validador de Paradoxos"** têm significado próprio e definido no corpus (ADR-000; Milestone 05). Esta proposta **não os reutiliza** como classificação estrutural. A expressão "lateralidade paradoxal" aparece acima **exclusivamente** como citação do vocabulário da memória humana não corroborada.
+
+### Camada B — Observação empírica recente (um caso)
+
+Uma experiência recente e **autorizada** de engenharia reversa demonstrou, na prática, capacidade de reconstruir quantidade significativa da **estrutura aparente** de sistemas analisados a partir de **superfícies públicas / observáveis** (organização, componentes, relações aparentes, escolhas tecnológicas, arquitetura inferida).
+
+Limites explícitos deste registro:
+- **Fonte:** relato desta conversa; não verificado contra artefatos nesta sessão — mesmo espírito de declaração de fonte já usado em `derivados/EstadoAtual.yaml` e no Achado 2 de `MILESTONE-06-ACHADOS-PRELIMINARES.md`.
+- **Não** se declara universalidade — não se afirma que todo sistema seja reconstruível nesse grau.
+- **Não** se declara comprovação da hipótese defensiva (Camada C) — reconstruir a superfície de terceiros não prova que os nossos produtos exponham o mesmo, nem que qualquer proteção específica funcione.
+- Constitui **motivação empírica**, não conclusão.
+
+### Camada C — Hipótese nova em observação
+
+**Hipótese:** à medida que a nossa capacidade autorizada de Engenharia Reversa melhora, pode ser útil desenvolver **paralelamente** capacidades defensivas destinadas a reduzir a **reconstruibilidade** dos nossos próprios produtos a partir das superfícies que necessariamente expomos.
+
+Esta relação é **hipótese em observação**. **Não é** regra canônica, **não é** a Lateralidade do Milestone 05, **não é** um novo par do Validador de Paradoxos, **não é** obrigação arquitetural e **não autoriza** implementar segurança, criptografia, hardening ou ofuscação.
+
+**Lado A — Engenharia Reversa autorizada.** Objetivo: melhorar a compreensão de sistemas, arquiteturas e superfícies observáveis por métodos **legítimos e autorizados**. Dimensões em que poderia evoluir: decomposição, observação, reconstrução, comparação, inferência estrutural, validação. Esta proposta **não registra técnicas ofensivas** e restringe-se a conhecimento, auditoria autorizada e defesa (ver "Escopo de segurança").
+
+**Lado B — Proteção anti-reconstrução.** Objetivo: reduzir quanto da arquitetura, lógica proprietária, organização interna ou conhecimento sensível dos nossos produtos pode ser reconstruído por terceiros a partir das superfícies que necessariamente expomos. **Não é sinônimo de criptografia** (ver "Distinção defensiva").
+
+**Relação entre os lados — apenas como hipótese a testar, nunca como princípio:**
+- evolução paralela dos dois lados *pode* ser útil;
+- aprendizados de um lado *podem* gerar classes de risco ou propriedades para avaliação do contraponto;
+- os lados devem permanecer **conceitualmente separados**;
+- **não há obrigação** de compartilhar técnicas, implementação ou escopo completo entre eles;
+- capacidade ofensiva/analítica **não implica** autoridade operacional;
+- proteção defensiva **não deve degradar** a auditabilidade interna.
+
+Nenhuma dessas proposições é promovida a princípio do Sistema MIM por este registro.
+
+### Distinção defensiva obrigatória
+
+Três coisas que não devem ser confundidas:
+
+| Classe | O que é | Estatuto nesta proposta |
+|---|---|---|
+| **A. Criptografia convencional** | Proteção criptográfica de dados, segredos, credenciais, comunicação e material sensível | Matéria conhecida e distinta. A criptografia que já aparece no corpus (Constituição e ADR-002 do FullCommerce) é desta classe. **Fora do foco desta proposta.** |
+| **B. Hardening / proteção anti-reconstrução** | Redução de exposição **estrutural** desnecessária nas superfícies observáveis | **Candidato novo de investigação.** Sem registro no corpus. |
+| **C. [?] "Criptografia semântica"** | Termo humano provisório para investigar se existe uma classe defensiva destinada a reduzir a reconstrução **conceitual** da arquitetura a partir de artefatos necessariamente observáveis | **Hipótese terminológica/conceitual em aberto.** Não corroborada historicamente, não definida tecnicamente, não ratificada. **Não deve ser apresentada como criptografia no sentido técnico.** |
+
+**Segurança não é obscuridade.** Esta proposta **não assume** que renomear diretórios, ofuscar nomes ou esconder convenções constitua proteção suficiente. A pergunta experimental é mais ampla: **quanto da estrutura real do produto pode ser reconstruído a partir da superfície exposta?** Nenhuma solução é prescrita nesta etapa.
+
+### Propriedade a observar (hipótese, não princípio)
+
+Registra-se para observação futura a hipótese de que dois eixos podem coexistir sem se anular:
+- **Interno:** alta legibilidade, alta auditabilidade, proveniência, genealogia, versionamento, clareza arquitetural.
+- **Externo:** exposição apenas do necessário, redução de reconstruibilidade desnecessária.
+
+Isto é: a proteção externa **não deveria exigir** a degradação da clareza e da auditabilidade internas. **Não** promovido a princípio canônico — é propriedade a testar.
+
+### Teste de Reconstruibilidade (possível instrumento experimental futuro)
+
+Registrado **somente** como conceito de instrumento, para uma rodada futura:
+
+> superfície legitimamente observável → tentativa controlada de reconstrução → mapa reconstruído → comparação com a arquitetura real → avaliação da reconstruibilidade.
+
+Dimensões de observação candidatas: arquitetura inferida; domínios/componentes inferidos; stack inferida; contratos inferidos; fluxos inferidos; relações internas inferidas; lógica proprietária inferida; mecanismos defensivos inferidos; tempo necessário para a inferência; confiança das inferências.
+
+**Não** se define aqui score, fórmula, threshold, escala normativa, tooling, automação ou implementação. Nenhum teste é executado contra nenhum produto por este registro. Se e quando desenhado, este instrumento seguiria o gênero do "Stress Test Pluricelular" de `VALIDACAO-EXPERIMENTAL.md` (ferramenta nomeada, separada do conteúdo que valida).
+
+### Critério de evidência
+
+**Casos independentes observados: 1** (a experiência da Camada B).
+
+Abaixo do critério objetivo de **dois casos reais independentes** já usado em `docs/metodologia/VALIDACAO-EXPERIMENTAL.md` e invocado pela Proposta 2. A memória humana da Camada A **não** conta como segundo caso (não é evidência empírica e não foi corroborada). Nenhum segundo caso é inventado. A proposta permanece deliberadamente **abaixo do limiar**.
+
+### Critério de revisão
+
+Reconsiderar esta proposta apenas quando surgir evidência que justifique, por exemplo:
+- um novo caso independente **autorizado** de engenharia reversa, com resultado registrado e rastreável;
+- um teste defensivo aplicado a **produto próprio**;
+- evidência de reconstruibilidade relevante de um produto nosso a partir das superfícies expostas;
+- repetição do fenômeno da Camada B em outro sistema;
+- evidência de que uma proteção específica reduz a reconstruibilidade **sem** prejudicar operação ou auditabilidade;
+- recuperação documental de `sistema-mim-historico-v1.md` / `-v2.md` (ou fonte equivalente) que permita reteste das proposições da Camada A.
+
+Não se cria threshold adicional: aplica-se o mesmo critério de "dois casos independentes" já vigente no corpus.
+
+### Escopo de segurança
+
+Matéria **exclusivamente** voltada a: sistemas próprios, ambientes autorizados, pesquisa defensiva e avaliação legítima de exposição. **Não** registra e **não** registrará procedimentos de acesso não autorizado, bypass de autenticação, obtenção de credenciais, persistência, exfiltração ou exploração destrutiva. Engenharia Reversa, aqui, é matéria de conhecimento, auditoria autorizada e defesa.
+
+### O que esta proposta não faz
+
+Não altera nem antecipa: ADR-000, ADR-001, o Milestone 02, o Milestone 05, o Validador de Paradoxos, o conceito existente de Lateralidade, a Engenharia Reversa em Camadas, a Base Canônica, o roadmap, qualquer milestone, código, testes, arquivos de pacote ou o checkpoint M02 untracked. Não cria autoridade canônica — o cabeçalho deste documento já declara que nenhum item aqui a tem. Não é um ADR e não pede para se tornar um.
+
+---
+
 ## Status
 
-Três propostas registradas até o momento. Novas propostas deliberadamente adiadas devem ser adicionadas a este documento, cada uma com estado, motivo e critério de revisão explícitos.
+Quatro propostas registradas até o momento. Novas propostas deliberadamente adiadas devem ser adicionadas a este documento, cada uma com estado, motivo e critério de revisão explícitos.
