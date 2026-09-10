@@ -1,0 +1,19 @@
+{
+  "name": "mim-core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sistema MIM — Context Builder (Milestone 02).",
+  "main": "src/contexto.js",
+  "bin": {
+    "mim-context-builder": "bin/context-builder.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}
